@@ -34,3 +34,12 @@ A redução da dimensionalidade, ou redução da dimensão, é a transformação
 
 ![1_kK4aMPHQ89ssFEus6RT4Yw](https://github.com/willianpireslima/Projeto_Ciencia_Dados_Python/assets/158337302/e553f5bd-b7bc-475d-b678-3451ee1aeab0)
 
+##Redes Neurais com a biblioteca TensorFlow
+
+Uma rede neural é um método de inteligência artificial que ensina computadores a processar dados de uma forma inspirada pelo cérebro humano. É um tipo de processo de machine learning, chamado aprendizado profundo, que usa nós ou neurônios interconectados em uma estrutura em camadas, semelhante ao cérebro humano
+
+O Algoritmo funciona da seguinte maneira
+
+![DeepLearning](https://github.com/willianpireslima/Projeto_Ciencia_Dados_Python/assets/158337302/4f58347c-4670-4059-9c47-96d2e3bf2ebe)
+
+
