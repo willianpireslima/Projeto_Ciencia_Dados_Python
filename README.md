@@ -1,5 +1,5 @@
 # Projeto_Ciencia_Dados_Python
- Codigo usado para analise e mineração de dados em python
+ Código usado para aprender o máximo de ferramentas é práticas da análise e mineração de dados em python 
 
 ## A Analise de dados feita usando a biblioteca Pandas
 
