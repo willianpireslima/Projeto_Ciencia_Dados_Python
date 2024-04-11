@@ -41,9 +41,6 @@ scaler = StandardScaler() #criando um objeto do StandardScaler()
 X_train = scaler.fit_transform(X_train) #Transformar os dados e padroniza-los.
 X_test = scaler.transform(X_test) #Transformar os dados
 
-#possui y_pred é y tem quatidades diferntes de amostras é para que tenham mesmo numero limitamos 
-# em y com o comando 'y[0:y_pred.shape[0]]'
-
 def metricas (y, y_pred,modelo,X_train, y_train):
     print(f'Cross Val : {cross_val_score(modelo, X_train, y_train, cv=5).mean():.2f}')
     print(f'R2        : {r2_score(y_test, y_pred):.2f}')
