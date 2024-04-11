@@ -46,10 +46,10 @@ X_test = scaler.transform(X_test) #Transformar os dados
 
 def metricas (y, y_pred,modelo,X_train, y_train):
     print(f'Cross Val : {cross_val_score(modelo, X_train, y_train, cv=5).mean():.2f}')
-    print(f'RSS       : {r2_score(y[0:y_pred.shape[0]], y_pred):.2f}')
-    print(f'MSE       : {mean_squared_error(y[0:y_pred.shape[0]], y_pred):.2f}')
-    print(f'RMSE      : {np.sqrt(mean_squared_error(y[0:y_pred.shape[0]], y_pred)):.2f}')
-    print(f'MAE       : {mean_absolute_error(y[0:y_pred.shape[0]], y_pred):.2f}\n')
+    print(f'R2        : {r2_score(y_test, y_pred):.2f}')
+    print(f'MSE       : {mean_squared_error(y_test, y_pred):.2f}')
+    print(f'RMSE      : {np.sqrt(mean_squared_error(y_test, y_pred)):.2f}')
+    print(f'MAE       : {mean_absolute_error(y_test, y_pred):.2f}\n')
 
 #4_Usando o Algoritmo LinearRegression
 lnreg = linear_model.LinearRegression() # Criando uma instância do LinearRegression
