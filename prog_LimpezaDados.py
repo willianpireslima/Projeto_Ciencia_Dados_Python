@@ -41,7 +41,7 @@ print('Coluna Categorica: direcao ')
 print(df['direcao'])
 print('\nProcessando --------------------------------------------------\n')
 #Para converter dados categóricos da coluna 'direcao' em dados numéricos
-df = pd.get_dummies(df, columns=['direcao'])
+df = pd.get_dummies(df, columns=['direcao'], dtype='int')
 print('Colunas Numericas de direcao ')
 print(df[['direcao_leste','direcao_norte' , 'direcao_oeste' , 'direcao_sul']])
 
