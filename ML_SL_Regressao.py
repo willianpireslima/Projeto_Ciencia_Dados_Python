@@ -41,12 +41,15 @@ scaler = StandardScaler() #criando um objeto do StandardScaler()
 X_train = scaler.fit_transform(X_train) #Transformar os dados e padroniza-los.
 X_test = scaler.transform(X_test) #Transformar os dados
 
+#possui y_pred é y tem quatidades diferntes de amostras é para que tenham mesmo numero limitamos 
+# em y com o comando 'y[0:y_pred.shape[0]]'
+
 def metricas (y, y_pred,modelo,X_train, y_train):
     print(f'Cross Val : {cross_val_score(modelo, X_train, y_train, cv=5).mean():.2f}')
-    print(f'RSS       : {r2_score(y[0:102], y_pred):.2f}')
-    print(f'MSE       : {mean_squared_error(y[0:102], y_pred):.2f}')
-    print(f'RMSE      : {np.sqrt(mean_squared_error(y[0:102], y_pred)):.2f}')
-    print(f'MAE       : {mean_absolute_error(y[0:102], y_pred):.2f}\n')
+    print(f'RSS       : {r2_score(y[0:y_pred.shape[0]], y_pred):.2f}')
+    print(f'MSE       : {mean_squared_error(y[0:y_pred.shape[0]], y_pred):.2f}')
+    print(f'RMSE      : {np.sqrt(mean_squared_error(y[0:y_pred.shape[0]], y_pred)):.2f}')
+    print(f'MAE       : {mean_absolute_error(y[0:y_pred.shape[0]], y_pred):.2f}\n')
 
 #4_Usando o Algoritmo LinearRegression
 lnreg = linear_model.LinearRegression() # Criando uma instância do LinearRegression
