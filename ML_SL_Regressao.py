@@ -41,7 +41,7 @@ scaler = StandardScaler() #criando um objeto do StandardScaler()
 X_train = scaler.fit_transform(X_train) #Transformar os dados e padroniza-los.
 X_test = scaler.transform(X_test) #Transformar os dados
 
-def metricas (y, y_pred,modelo,X_train, y_train):
+def metricas (y_pred,modelo,X_train, y_train):
     print(f'Cross Val : {cross_val_score(modelo, X_train, y_train, cv=5).mean():.2f}')
     print(f'R2        : {r2_score(y_test, y_pred):.2f}')
     print(f'MSE       : {mean_squared_error(y_test, y_pred):.2f}')
@@ -53,47 +53,47 @@ lnreg = linear_model.LinearRegression() # Criando uma instância do LinearRegres
 lnreg.fit(X_train, y_train) # Treinando o SVM
 y_pred = lnreg.predict(X_test) # Fazendo previsões nos dados de teste
 print(f'Regressao linear')
-metricas (y, y_pred,lnreg,X_train, y_train)
+metricas (y_pred,lnreg,X_train, y_train)
 
 #5_Usando o Algoritmo k-nearest neighbors
 knnreg = KNeighborsRegressor(n_neighbors=3,p=2,metric='euclidean')
 knnreg.fit(X_train, y_train)
 y_pred = knnreg.predict(X_test)
 print(f"k-nearest neighbors")
-metricas (y, y_pred,knnreg,X_train, y_train)
+metricas (y_pred,knnreg,X_train, y_train)
 
 #6_Usando o Algoritmo Decision tree
 dtm = DecisionTreeRegressor() # Cria o objeto classificador da Árvore de Decisão
 dtm = dtm.fit(X_train,y_train) # Treinar classificador de árvore de decisão
 y_pred = dtm.predict(X_test) #Prever a resposta do conjunto de dados de teste
 print(f'Arvore de decisao')
-metricas (y, y_pred,dtm,X_train, y_train)
+metricas (y_pred,dtm,X_train, y_train)
 
 #7_Usando o Algoritmo Support Vector Machine
 clf = svm.SVR(kernel='linear') # Criando uma instância do SVM de regressao SVC
 clf.fit(X_train, y_train) # Treinando o SVM
 y_pred = clf.predict(X_test) # Fazendo previsões nos dados de teste
 print(f'SVM')
-metricas (y, y_pred,dtm,X_train, y_train)
+metricas (y_pred,dtm,X_train, y_train)
 
 #8_Usando o Algoritmo Random forests
 rfreg = RandomForestRegressor(n_estimators=10) # Criando uma instância do Random forests
 rfreg.fit(X_train, y_train) # Treinando o SVM
 y_pred = rfreg.predict(X_test) # Fazendo previsões nos dados de teste
 print(f'Random forests')
-metricas (y, y_pred,rfreg,X_train, y_train)
+metricas (y_pred,rfreg,X_train, y_train)
 
 #9_Usando o Algoritmo GradientBoostingRegressor
 gbreg = GradientBoostingRegressor(random_state=1) # Criando uma instância do  GradientBoost
 gbreg.fit(X_train, y_train) # Treinando o SVM
 y_pred = gbreg.predict(X_test) # Fazendo previsões nos dados de teste
 print(f'Gradient Boosting')
-metricas (y, y_pred,gbreg,X_train, y_train)
+metricas (y_pred,gbreg,X_train, y_train)
 
 #10_Usando o Voting
 vtr = VotingRegressor(estimators=[('gb', gbreg), ('rf', rfreg), ('lr', lnreg)]) # Criando uma instância do  Voting
 vtr.fit(X_train, y_train) # Treinando o SVM
 y_pred = vtr.predict(X_test) # Fazendo previsões nos dados de teste
 print(f'Voting')
-metricas (y, y_pred,vtr,X_train, y_train)
+metricas (y_pred,vtr,X_train, y_train)
 
