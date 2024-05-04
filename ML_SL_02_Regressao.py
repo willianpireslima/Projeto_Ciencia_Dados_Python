@@ -24,6 +24,10 @@ print(df.info(),'\n')
 print("\nInformações do Dados:")
 print(df.head(),'\n')
 
+#Removendo as colunas não úteis para a análise
+df = df.drop(['AGE'], axis=1)
+df = df.drop(['B'], axis=1)
+
 #Variáveis independentes (features)
 X = df.drop('MEDV', axis=1) #Incluindo Todas as colunas exceto a target
 
