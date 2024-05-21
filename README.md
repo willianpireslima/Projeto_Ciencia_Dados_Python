@@ -41,6 +41,6 @@ Uma rede neural é um método de inteligência artificial que ensina computadore
 O Algoritmo funciona da seguinte maneira
 
 ![DeepLearning](https://github.com/willianpireslima/Projeto_Ciencia_Dados_Python/assets/158337302/4f58347c-4670-4059-9c47-96d2e3bf2ebe)
-A Rede Neural é construída a partir de 3 tipos de camadas: Camada de entrada — dados iniciais da rede neural. Camadas ocultas — camada intermediária entre as camadas de entrada e saída e local onde todos os cálculos são feitos. Camada de saída — produz o resultado para determinadas entradas.
+A Rede Neural é construída a partir de 3 tipos de camadas: Input layer — dados iniciais da rede neural. Hidden layers — camada intermediária entre as camadas de entrada e saída e local onde todos os cálculos são feitos. Output layer — produz o resultado para determinadas entradas.
 
 
