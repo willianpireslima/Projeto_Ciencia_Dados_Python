@@ -191,6 +191,22 @@ for model in model_list:
     print(f"Recall         : {recall_score(y_test, y_pred,zero_division=1):.2f}")
     print(f"F1 Score       : {f1_score(y_test, y_pred,zero_division=1):.2f}\n")
 
+    # Iniciando a Verificaao de underfitting e overfitting
+    y_pred_train = model.predict(X_train)  # Fazendo previsões nos dados de treinamento
+    y_pred_test = model.predict(X_test)  # Fazendo previsões nos dados de teste
+    # Calculando métricas de treinamento e teste
+    train_accuracy = accuracy_score(y_train, y_pred_train)
+    test_accuracy = accuracy_score(y_test, y_pred_test)
+
+    # Verificando os dados
+    if train_accuracy < 0.6 and test_accuracy < 0.6:
+        print("Modelo está underfitting.")
+    elif train_accuracy > 0.9 and test_accuracy < 0.7:
+        print("Modelo está overfitting.")
+    else:
+        print("Modelo está com bom desempenho.")
+    print("\n" + "-" * 40 + "\n")
+
 
 #Salvando O Modelo usando o Algoritmo k-nearest neighbors como exemplo
 knn = KNeighborsClassifier(n_neighbors=11,p=2,metric='euclidean')

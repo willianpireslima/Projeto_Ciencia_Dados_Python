@@ -76,3 +76,5 @@ for model in model_list:
     print(f'RMSE      : {np.sqrt(mean_squared_error(y_test, y_pred)):.2f}')
     print(f'MAE       : {mean_absolute_error(y_test, y_pred):.2f}\n')
 
+
+

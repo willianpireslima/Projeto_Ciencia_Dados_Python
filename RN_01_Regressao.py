@@ -62,26 +62,45 @@ model.compile(
 history = model.fit(X_train, y_train, epochs=100,validation_data=(X_test, y_test))
 
 #6_Cheacando as Metricas
-loss, binary_accuracy,binary_crossentropy, precision, recall, f1_score = model.evaluate(X_test, y_test)
+train_loss, train_binary_accuracy, _, train_precision, train_recall, train_f1_score = model.evaluate(X_train, y_train)
+test_loss, test_binary_accuracy, _, test_precision, test_recall, test_f1_score = model.evaluate(X_test, y_test)
 
-print('\nMetricas do Modelo')
-print(f'Loss                : {loss:.2f}')
-print(f'Binary Accuracy     : {binary_accuracy:.2f}')
-print(f'Binary Crossentropy : {binary_crossentropy:.2f}')
-print(f'Precision           : {precision:.2f}')
-print(f'Recall              : {recall:.2f}')
-print(f'F1 Score            : {f1_score:.2f}')
+print('\nMetricas do Modelo (Treinamento)')
+print(f'Loss                : {train_loss:.2f}')
+print(f'Binary Accuracy     : {train_binary_accuracy:.2f}')
+print(f'Precision           : {train_precision:.2f}')
+print(f'Recall              : {train_recall:.2f}')
+print(f'F1 Score            : {train_f1_score:.2f}')
 
-#7_Salvando o Modelo
-model.save('my_model.keras')  # Salvar modelo
+print('\nMetricas do Modelo (Teste)')
+print(f'Loss                : {test_loss:.2f}')
+print(f'Binary Accuracy     : {test_binary_accuracy:.2f}')
+print(f'Precision           : {test_precision:.2f}')
+print(f'Recall              : {test_recall:.2f}')
+print(f'F1 Score            : {test_f1_score:.2f}')
 
-#8_Checando o Overfitting e underfitting
+# Verificando underfitting e overfitting
+train_accuracy = train_binary_accuracy
+test_accuracy = test_binary_accuracy
+
+print('\nVerificação de Underfitting e Overfitting:')
+if train_accuracy < 0.6 and test_accuracy < 0.6:
+    print("Modelo está underfitting.")
+elif train_accuracy > 0.9 and test_accuracy < 0.7:
+    print("Modelo está overfitting.")
+else:
+    print("Modelo está com bom desempenho.")
+
+# Curva de Perda
 plt.xlabel("Model Complexity - epochs")
 plt.ylabel("Error Rate")
 plt.title("Loss Curve")
 plt.plot(history.history['loss'], label='Train Loss', color='blue')
 plt.plot(history.history['val_loss'], label='Test Loss', color='orange')
+plt.legend()
 plt.show()
 
+#7_Salvando o Modelo
+model.save('dados/my_model.keras')  # Salvar modelo
 #https://www.analyticsvidhya.com/blog/2021/10/beginners-guide-on-how-to-train-a-classification-model-with-tensorflow/
 #https://medium.com/swlh/introduction-to-deep-learning-using-keras-and-tensorflow-part2-284746ab4442
