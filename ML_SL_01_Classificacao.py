@@ -140,7 +140,7 @@ plt.subplots_adjust(left=0.3)
 plt.show()
 
 # Salvar o DataFrame modificado em um novo arquivo CSV
-df.to_csv('onlinefoods_Limpo.csv', index=False, mode='w')
+df.to_csv('dados/onlinefoods_Limpo.csv', index=False, mode='w')
 
 #1_Machine Learning - Separando os Dados e os mapeando
 X = df.drop(['Feedback'], axis=1) # Variáveis independentes (features)
