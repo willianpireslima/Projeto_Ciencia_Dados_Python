@@ -46,4 +46,8 @@ Input layer — dados iniciais da rede neural.\
 Hidden layers — camada intermediária entre as camadas de entrada e saída e local onde todos os cálculos são feitos.\
 Output layer — produz o resultado para determinadas entradas.
 
+Calculando a quantidade de camadas da hidden layers\
+![calculando_hiddenlayer](https://github.com/willianpireslima/Projeto_Ciencia_Dados_Python/assets/158337302/cb49a840-3e3a-4840-9de3-fc66bbf33fdb)
+
+
 
